@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ally - Nossos Serviços</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Conheça todos os serviços disponíveis na plataforma Ally. Encontre os melhores profissionais para suas necessidades.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/ico/favicon_io (1)/favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-hover: #267349;
+            --secondary-color: #F8F9FA;
+            --dark-color: #212529;
+            --light-color: #FFFFFF;
+            --text-color: #495057;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+        
+        /* Navbar Moderna */
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-color) !important;
+        }
+        
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+            height: 40px;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            margin: 0 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .services-hero {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(248, 249, 250, 1) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(46, 139, 87, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .services-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(46, 139, 87, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .services-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .services-subtitle {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Filtro de Serviços */
+        .services-filter {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: -2rem auto 3rem;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+        }
+        
+        .filter-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Cards de Serviços */
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            background-color: var(--light-color);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-img-container {
+            height: 250px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .service-category {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.75rem;
+        }
+        
+        .card-text {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-service {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-service:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .services-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-hero {
+                padding: 3rem 0;
+            }
+            
+            .services-title {
+                font-size: 1.8rem;
+            }
+            
+            .services-subtitle {
+                font-size: 1rem;
+            }
+            
+            .service-img-container {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .services-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Moderna -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/app.html">
+                <img src="img/ALLY/LOGO ALLY - PRETO.svg" alt="Ally Logo">
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list" style="font-size: 1.75rem;"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Solucoes.html">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faleConosco.html">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/serviços.html">Serviços</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <form class="d-flex me-3">
+                        <div class="input-group">
+                            <input class="form-control rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+                            <button class="btn btn-outline-success rounded-pill ms-2" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1 class="services-title fade-in">Nossos Serviços</h1>
+            <p class="services-subtitle fade-in delay-1">Encontre os melhores profissionais para cada necessidade, com qualidade garantida e preços justos.</p>
+        </div>
+    </section>
+
+    <!-- Filtro de Serviços -->
+    <div class="container">
+        <div class="services-filter fade-in delay-2">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h4 class="filter-title">Filtrar por categoria:</h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-outline-secondary rounded-pill active">Todos</button>
+                        <button class="btn btn-outline-secondary rounded-pill">Construção</button>
+                        <button class="btn btn-outline-secondary rounded-pill">Manutenção</button>
+                        <button class="btn btn-outline-secondary rounded-pill">Limpeza</button>
+                        <button class="btn btn-outline-secondary rounded-pill">Tecnologia</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Listagem de Serviços -->
+    <section class="container mb-5">
+        <div class="row">
+            <!-- Jardinagem -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Jardinagem profissional cuidando de plantas">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Manutenção</span>
+                        <h5 class="card-title">Jardinagem</h5>
+                        <p class="card-text">Mais do que jardinagem, oferecemos arte paisagística com profissionais apaixonados que transformam seu espaço exterior.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Construção -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in delay-1">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Obra de construção civil em andamento">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Construção</span>
+                        <h5 class="card-title">Construção Civil</h5>
+                        <p class="card-text">Obras impecáveis com resultados duradouros. Desde pequenas reformas até construções completas, com profissionais qualificados.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pintura -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in delay-2">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Profissional realizando serviço de pintura">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Reforma</span>
+                        <h5 class="card-title">Pintura</h5>
+                        <p class="card-text">Pintura sob medida para o seu estilo, com profissionais especializados em residências e empresas. Qualidade e acabamento impecável.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Eletricista -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1605170439002-90845e8c0137?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Eletricista trabalhando em quadro de distribuição">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Manutenção</span>
+                        <h5 class="card-title">Eletricista</h5>
+                        <p class="card-text">Soluções elétricas seguras e eficientes, desde instalações simples até projetos complexos. Garantia de segurança e qualidade.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Limpeza -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in delay-1">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Profissional de limpeza trabalhando">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Limpeza</span>
+                        <h5 class="card-title">Limpeza Residencial</h5>
+                        <p class="card-text">Serviços de limpeza residencial que garantem um ambiente impecável e saudável. Profissionais treinados e produtos de qualidade.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Serviços Gerais -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in delay-2">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Profissional realizando serviços gerais">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Diversos</span>
+                        <h5 class="card-title">Serviços Gerais</h5>
+                        <p class="card-text">Profissionais versáteis para resolver diversas necessidades do seu dia a dia. Praticidade e eficiência para tarefas variadas.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Limpeza de Placa Solar -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Técnico limpando placas solares">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Especializado</span>
+                        <h5 class="card-title">Limpeza de Placas Solares</h5>
+                        <p class="card-text">Realizamos a limpeza de placas solares com atenção e respeito, garantindo a máxima eficiência do seu sistema solar.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Limpeza de Piscina -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in delay-1">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Profissional limpando piscina">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Lazer</span>
+                        <h5 class="card-title">Limpeza de Piscina</h5>
+                        <p class="card-text">Oferecemos limpeza de piscinas com cuidado e precisão, assegurando um ambiente limpo e seguro para você e sua família.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Design -->
+            <div class="col-md-6 col-lg-4 mb-4 fade-in delay-2">
+                <div class="service-card">
+                    <div class="service-img-container">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Designer trabalhando em computador">
+                    </div>
+                    <div class="card-body">
+                        <span class="service-category">Tecnologia</span>
+                        <h5 class="card-title">Web Design</h5>
+                        <p class="card-text">Desenvolvemos sites com criatividade e atenção aos detalhes, garantindo uma presença online atraente e funcional para seu negócio.</p>
+                        <a href="#" class="btn btn-service">Contratar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="cta-title">Não encontrou o serviço que precisa?</h2>
+                    <p class="cta-text">Nossa equipe pode ajudar a encontrar o profissional ideal para sua necessidade específica.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="faleConosco.html" class="btn btn-light btn-lg px-4 rounded-pill fw-semibold">
+                            <i class="bi bi-headset me-2"></i> Fale Conosco
+                        </a>
+                        <a href="tel:+5565999999999" class="btn btn-outline-light btn-lg px-4 rounded-pill fw-semibold">
+                            <i class="bi bi-telephone me-2"></i> Ligue Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="img/ALLY/LOGO ALLY - BRANCO.svg" alt="Ally Logo" height="40" class="mb-3">
+                    <p class="text-muted">Conectando você aos melhores profissionais da sua região desde 2023.</p>
+                    
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4 fw-semibold">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/app.html" class="text-decoration-none text-muted">Home</a></li>
+                        <li class="mb-2"><a href="/Solucoes.html" class="text-decoration-none text-muted">Sobre Nós</a></li>
+                        <li class="mb-2"><a href="/serviços.html" class="text-decoration-none text-muted">Serviços</a></li>
+                        <li class="mb-2"><a href="faleConosco.html" class="text-decoration-none text-muted">Contato</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4 fw-semibold">Serviços</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Jardinagem</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Construção</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Pintura</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Eletricista</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Limpeza</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-semibold">Contato</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Tangará da Serra, MT</li>
+                        <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> contato@ally.com.br</li>
+                        <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> (65) 99999-9999</li>
+                        <li class="mb-2"><i class="bi bi-clock-fill me-2"></i> Seg-Sex: 8:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted">&copy; 2023 Ally. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-muted">Desenvolvido com <i class="bi bi-heart-fill text-danger"></i> pela equipe Ally</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts Customizados -->
+    <script>
+        // Ativar animações quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+            
+            // Adicionar classe active ao item de menu correspondente à página atual
+            const currentPage = window.location.pathname.split('/').pop() || 'app.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href').split('/').pop();
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Filtro de serviços
+            const filterButtons = document.querySelectorAll('.services-filter .btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Aqui você pode adicionar a lógica para filtrar os serviços
+                    // por categoria quando implementar o JavaScript
+                });
+            });
+        });
+    </script>
+</body>
+</html>

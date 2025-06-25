@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ally - Login</title>
+  
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <style>
+    :root {
+      --primary-color: #2E8B57;
+      --primary-hover: #267349;
+      --secondary-color: #F8F9FA;
+      --dark-color: #212529;
+      --light-color: #FFFFFF;
+      --text-color: #495057;
+      --bg-color: #F5F7FA;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: var(--bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(46, 139, 87, 0.2);
+    }
+    
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .login-card {
+      background-color: var(--light-color);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: var(--primary-color);
+      z-index: 2;
+    }
+
+    .logo {
+      margin-bottom: 30px;
+    }
+    
+    .logo img {
+      height: 50px;
+    }
+
+    h3 {
+      color: var(--dark-color);
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    
+    .input-group i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-color);
+      font-size: 1.1rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px 15px 15px 45px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+    }
+
+    input::placeholder {
+      color: #aaa;
+      font-weight: 300;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    
+    .btn-login:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+    }
+    
+    .forgot-password {
+      display: block;
+      text-align: right;
+      margin-top: 10px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .forgot-password:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+    
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .divider::before {
+      margin-right: 10px;
+    }
+    
+    .divider::after {
+      margin-left: 10px;
+    }
+    
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .social-btn:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+    
+    .register-link {
+      color: var(--text-color);
+      font-size: 0.95rem;
+    }
+    
+    .register-link a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .register-link a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+    
+    /* Efeitos de animação */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .login-card {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 576px) {
+      .login-card {
+        padding: 30px 20px;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="logo">
+        <img src="../img/ALLY/ChatGPT Image 18_06_2025, 17_45_09 sem fundp.png" alt="Ally Logo">
+      </div>
+      <h3>Bem-vindo de volta</h3>
+      
+      <form>
+        <div class="input-group">
+          <i class="bi bi-person-fill"></i>
+          <input type="text" placeholder="E-mail ou usuário" id="login">
+        </div>
+        
+        <div class="input-group">
+          <i class="bi bi-lock-fill"></i>
+          <input type="password" placeholder="Senha" id="senha">
+        </div>
+        
+        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+        
+        <button type="submit" class="btn-login" onclick="logar(); return false">
+          Entrar
+        </button>
+        
+        <div class="divider">ou</div>
+        
+        <div class="social-login">
+          <div class="social-btn">
+            <i class="bi bi-google"></i>
+          </div>
+          <div class="social-btn">
+            <i class="bi bi-facebook"></i>
+          </div>
+          <div class="social-btn">
+            <i class="bi bi-apple"></i>
+          </div>
+        </div>
+        
+        <p class="register-link">
+          Não tem uma conta? <a href="#">Cadastre-se</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function logar() {
+      var login = document.getElementById('login').value;
+      var senha = document.getElementById('senha').value;
+
+      if(login == "admin" && senha == "password") {
+        alert('Logado com sucesso!');
+        location.href = "../app.html";
+      } else {
+        alert('Usuário ou senha incorretos');
+      }
+    }
+  </script>
+</body>
+</html>

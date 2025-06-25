@@ -1,0 +1,24 @@
+{
+  "name": "ally",
+  "version": "1.0.0",
+  "description": "Projeto Startup ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "BootStrap",
+    "express",
+    "mysql",
+    "node"
+  ],
+  "author": "Rodrigo Rodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  }
+}

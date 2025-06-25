@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ally - Profissionais de Limpeza de Piscina</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-hover: #267349;
+            --secondary-color: #F8F9FA;
+            --dark-color: #212529;
+            --light-color: #FFFFFF;
+            --text-color: #495057;
+            --star-color: #FFC107;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+        
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), url('https://images.unsplash.com/photo-1595941069915-4ebc6e39a8ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80') no-repeat center center);
+            background-size: cover;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .provider-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            background-color: var(--light-color);
+            border: none;
+        }
+        
+        .provider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .provider-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .badge-ranking {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        
+        .ranking-1 {
+            background-color: #FFD700;
+            color: #000;
+        }
+        
+        .ranking-2 {
+            background-color: #C0C0C0;
+            color: #000;
+        }
+        
+        .ranking-3 {
+            background-color: #CD7F32;
+            color: #000;
+        }
+        
+        .ranking-other {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .star-rating {
+            color: var(--star-color);
+            font-size: 1.1rem;
+        }
+        
+        .verified-badge {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        
+        .filter-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-ally {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-ally:hover {
+            background-color: var(--primary-hover);
+            color: white;
+        }
+        
+        .specialty-tag {
+            display: inline-block;
+            background-color: #e9f5f0;
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/150x50?text=ALLY" alt="Ally Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Profissionais</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-success me-2">Login</a>
+                    <a href="#" class="btn btn-success">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Limpeza de Piscina</h1>
+            <p class="lead mb-4">Encontre os melhores profissionais para manter sua piscina cristalina</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg" placeholder="Digite sua localização...">
+                        <button class="btn btn-success" type="button">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Filters Column -->
+            <div class="col-lg-3">
+                <div class="filter-card">
+                    <h5 class="fw-bold mb-4">Filtrar</h5>
+                    
+                    <div class="mb-4">
+                        <h6 class="fw-bold">Ordenar por</h6>
+                        <select class="form-select">
+                            <option selected>Melhor avaliação</option>
+                            <option>Mais contratados</option>
+                            <option>Mais experientes</option>
+                            <option>Mais recentes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="fw-bold">Avaliação mínima</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ratingFilter" id="rating5" checked>
+                            <label class="form-check-label" for="rating5">
+                                <span class="star-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </span> (4.5+)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ratingFilter" id="rating4">
+                            <label class="form-check-label" for="rating4">
+                                <span class="star-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                </span> (4.0+)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ratingFilter" id="rating3">
+                            <label class="form-check-label" for="rating3">
+                                <span class="star-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </span> (3.0+)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="fw-bold">Especialidades</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="specialty1" checked>
+                            <label class="form-check-label" for="specialty1">Limpeza convencional</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="specialty2" checked>
+                            <label class="form-check-label" for="specialty2">Tratamento químico</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="specialty3" checked>
+                            <label class="form-check-label" for="specialty3">Manutenção de equipamentos</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="specialty4" checked>
+                            <label class="form-check-label" for="specialty4">Limpeza profunda</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="fw-bold">Disponibilidade</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="availableNow" checked>
+                            <label class="form-check-label" for="availableNow">Disponível esta semana</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="verifiedOnly" checked>
+                            <label class="form-check-label" for="verifiedOnly">Somente verificados</label>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-ally w-100">Aplicar Filtros</button>
+                </div>
+            </div>
+            
+            <!-- Providers List -->
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold">Profissionais de Limpeza de Piscina</h3>
+                    <span class="text-muted">32 profissionais encontrados</span>
+                </div>
+                
+                <!-- Ranking Top 3 -->
+                <div class="row mb-4">
+                    <!-- 1st Place -->
+                    <div class="col-md-4 mb-3">
+                        <div class="provider-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                                     alt="João Silva" class="provider-img">
+                                <span class="badge-ranking ranking-1">1º</span>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-0">João Silva</h5>
+                                    <span class="verified-badge">
+                                        <i class="bi bi-patch-check-fill"></i> Verificado
+                                    </span>
+                                </div>
+                                <div class="star-rating mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <span class="text-muted ms-1">(147 avaliações)</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="specialty-tag">Tratamento químico</span>
+                                    <span class="specialty-tag">Equipamentos</span>
+                                    <span class="specialty-tag">Limpeza profunda</span>
+                                </div>
+                                <p class="text-muted mb-3">Especialista em limpeza e manutenção de piscinas há 8 anos. Trabalho com produtos de qualidade e garantia de satisfação.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-success fw-bold">Orçamento sem compromisso</span>
+                                    <a href="#" class="btn btn-sm btn-ally">Contratar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2nd Place -->
+                    <div class="col-md-4 mb-3">
+                        <div class="provider-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80" 
+                                     alt="Maria Oliveira" class="provider-img">
+                                <span class="badge-ranking ranking-2">2º</span>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-0">Maria Oliveira</h5>
+                                    <span class="verified-badge">
+                                        <i class="bi bi-patch-check-fill"></i> Verificado
+                                    </span>
+                                </div>
+                                <div class="star-rating mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="text-muted ms-1">(98 avaliações)</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="specialty-tag">Piscinas residenciais</span>
+                                    <span class="specialty-tag">Tratamento químico</span>
+                                </div>
+                                <p class="text-muted mb-3">Profissional especializada em limpeza e tratamento químico de piscinas residenciais e comerciais.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-success fw-bold">Orçamento sem compromisso</span>
+                                    <a href="#" class="btn btn-sm btn-ally">Contratar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 3rd Place -->
+                    <div class="col-md-4 mb-3">
+                        <div class="provider-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                     alt="Carlos Santos" class="provider-img">
+                                <span class="badge-ranking ranking-3">3º</span>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-0">Carlos Santos</h5>
+                                    <span class="verified-badge">
+                                        <i class="bi bi-patch-check-fill"></i> Verificado
+                                    </span>
+                                </div>
+                                <div class="star-rating mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="text-muted ms-1">(76 avaliações)</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="specialty-tag">Manutenção de equipamentos</span>
+                                    <span class="specialty-tag">Piscinas de fibra</span>
+                                </div>
+                                <p class="text-muted mb-3">Técnico em piscinas com experiência em filtros, bombas e sistemas de limpeza automática.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-success fw-bold">Orçamento sem compromisso</span>
+                                    <a href="#" class="btn btn-sm btn-ally">Contratar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Providers -->
+                <h5 class="fw-bold mb-3">Outros profissionais disponíveis</h5>
+                
+                <div class="row">
+                    <!-- Provider 4 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="provider-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                     alt="Ana Costa" class="provider-img">
+                                <span class="badge-ranking ranking-other">4º</span>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-0">Ana Costa</h5>
+                                    <span class="verified-badge">
+                                        <i class="bi bi-patch-check-fill"></i> Verificado
+                                    </span>
+                                </div>
+                                <div class="star-rating mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="text-muted ms-1">(65 avaliações)</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="specialty-tag">Produtos ecológicos</span>
+                                    <span class="specialty-tag">Limpeza convencional</span>
+                                </div>
+                                <p class="text-muted mb-3">Limpeza profissional com produtos ecológicos e não-agressivos.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-success fw-bold">Orçamento sem compromisso</span>
+                                    <a href="#" class="btn btn-sm btn-ally">Contratar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Provider 5 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="provider-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                     alt="Pedro Almeida" class="provider-img">
+                                <span class="badge-ranking ranking-other">5º</span>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-0">Pedro Almeida</h5>
+                                    <span class="verified-badge">
+                                        <i class="bi bi-patch-check-fill"></i> Verificado
+                                    </span>
+                                </div>
+                                <div class="star-rating mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="text-muted ms-1">(42 avaliações)</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="specialty-tag">Piscinas de fibra</span>
+                                    <span class="specialty-tag">Vinil</span>
+                                </div>
+                                <p class="text-muted mb-3">Especialista em piscinas de fibra e vinil, com serviço completo de limpeza e manutenção.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-success fw-bold">Orçamento sem compromisso</span>
+                                    <a href="#" class="btn btn-sm btn-ally">Contratar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Provider 6 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="provider-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                     alt="Juliana Pereira" class="provider-img">
+                                <span class="badge-ranking ranking-other">6º</span>
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="mb-0">Juliana Pereira</h5>
+                                    <span class="verified-badge">
+                                        <i class="bi bi-patch-check-fill"></i> Verificado
+                                    </span>
+                                </div>
+                                <div class="star-rating mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <i class="bi bi-star"></i>
+                                    <span class="text-muted ms-1">(38 avaliações)</span>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="specialty-tag">Limpeza profunda</span>
+                                    <span class="specialty-tag">Aspiração</span>
+                                </div>
+                                <p class="text-muted mb-3">Serviço completo de limpeza, incluindo aspiração, escovação e balanceamento químico.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-success fw-bold">Orçamento sem compromisso</span>
+                                    <a href="#" class="btn btn-sm btn-ally">Contratar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próxima</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/180x60?text=ALLY+LOGO+BRANCO" alt="Ally Logo" height="40" class="mb-3">
+                    <p class="text-muted">Conectando você aos melhores profissionais da sua região desde 2023.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4 fw-semibold">Links Úteis</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Serviços</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Profissionais</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4 fw-semibold">Serviços</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Limpeza de Piscina</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Jardinagem</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Eletricista</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Pintura</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-4 fw-semibold">Contato</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Tangará da Serra, MT</li>
+                        <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> contato@ally.com.br</li>
+                        <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> (65) 99999-9999</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted">&copy; 2023 Ally. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 text-muted">Desenvolvido com <i class="bi bi-heart-fill text-danger"></i> pela equipe Ally</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

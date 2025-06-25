@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ally - Sobre Nós</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Conheça a Ally, a plataforma que conecta você aos melhores profissionais de serviços locais. Nossa missão, visão e valores.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/ico/favicon_io (1)/favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-hover: #267349;
+            --secondary-color: #F8F9FA;
+            --dark-color: #212529;
+            --light-color: #FFFFFF;
+            --text-color: #495057;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+        
+        /* Navbar Moderna */
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-color) !important;
+        }
+        
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+            height: 40px;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            margin: 0 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero-about {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(248, 249, 250, 1) 100%);
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Sobre Nós */
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+            position: relative;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .about-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            height: 100%;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .about-card h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-card .icon {
+            background-color: rgba(46, 139, 87, 0.1);
+            color: var(--primary-color);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        /* Missão, Visão, Valores */
+        .mvv-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .mvv-item {
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            background-color: var(--secondary-color);
+        }
+        
+        .mvv-item h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mvv-item h3 i {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Time */
+        .team-section {
+            padding: 5rem 0;
+        }
+        
+        .team-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(46, 139, 87, 0.2);
+            margin: 0 auto 1.5rem;
+        }
+        
+        .team-card h4 {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-card p {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .about-section, .mvv-section, .team-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Moderna -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/app.html">
+                <img src="img/ALLY/LOGO ALLY - PRETO.svg" alt="Ally Logo">
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list" style="font-size: 1.75rem;"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Solucoes.html">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faleConosco.html">Fale Conosco</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/serviços.html">Serviços</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <form class="d-flex me-3">
+                        <div class="input-group">
+                            <input class="form-control rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+                            <button class="btn btn-outline-success rounded-pill ms-2" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="container text-center">
+            <h1 class="hero-title">Conectando pessoas a profissionais de qualidade</h1>
+            <p class="hero-subtitle">A Ally nasceu para simplificar a contratação de serviços, garantindo segurança, praticidade e satisfação para ambos os lados.</p>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="about-card">
+                        <div class="icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h3>Nossa Origem</h3>
+                        <p>Fundada em 2023 em Tangará da Serra-MT, a Ally surgiu da necessidade de criar uma ponte segura entre quem precisa de serviços e quem os oferece, eliminando intermediários e burocracias.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="about-card">
+                        <div class="icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h3>Nossa Jornada</h3>
+                        <p>Em pouco tempo, expandimos para toda a região, conectando milhares de usuários a profissionais qualificados. Hoje somos referência em soluções práticas para o dia a dia.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="about-card">
+                        <div class="icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h3>Nosso Futuro</h3>
+                        <p>Buscamos constantemente inovar e expandir nossos serviços, sempre com foco na qualidade das conexões e na satisfação de nossos usuários e parceiros.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missão, Visão, Valores -->
+    <section class="mvv-section">
+        <div class="container">
+            <h2 class="section-title">Nossos Princípios</h2>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mvv-item">
+                        <h3><i class="bi bi-stars"></i> Missão</h3>
+                        <p>Facilitar a conexão entre pessoas que precisam de serviços e profissionais qualificados, oferecendo uma plataforma segura, transparente e eficiente que beneficie ambos os lados.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="mvv-item">
+                        <h3><i class="bi bi-eye"></i> Visão</h3>
+                        <p>Ser a principal referência em contratação de serviços locais no Brasil, reconhecida pela qualidade das conexões e pela satisfação gerada em nossa comunidade.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="mvv-item">
+                        <h3><i class="bi bi-heart"></i> Valores</h3>
+                        <ul>
+                            <li><strong>Transparência:</strong> Relações claras e honestas</li>
+                            <li><strong>Qualidade:</strong> Padrões elevados em todos os serviços</li>
+                            <li><strong>Inovação:</strong> Melhoria contínua da plataforma</li>
+                            <li><strong>Comunidade:</strong> Valorização dos profissionais locais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Nosso Time</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Fundador" class="team-img">
+                        <h4>Carlos Eduardo</h4>
+                        <p>CEO & Fundador</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="CTO" class="team-img">
+                        <h4>Amanda Silva</h4>
+                        <p>CTO</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="CMO" class="team-img">
+                        <h4>Roberto Almeida</h4>
+                        <p>CMO</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
