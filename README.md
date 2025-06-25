@@ -1,2 +1,0 @@
-# Ally-Plataform
-Ally-Plataform
